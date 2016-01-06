@@ -14,7 +14,22 @@ public class HttpCallJsonLoaderTest extends JsonBaseTest {
 
 	@Test
 	public void testThis() throws IOException, RegurgitatorException {
-		assertExpectation("classpath:/HttpCall.json", "com.emarte.regurgitator.extensions.web.HttpCall:['http-call-1',com.emarte.regurgitator.extensions.web.HttpMessageProxy:['something.com',1234],null]");
+		assertExpectation("classpath:/HttpCall.json", "com.emarte.regurgitator.extensions.web.HttpCall:['http-call-1',com.emarte.regurgitator.extensions.web.HttpMessageProxy:['something.com',1234,null,null],null]");
+	}
+
+	@Test
+	public void testMax() throws IOException, RegurgitatorException {
+		assertExpectation("classpath:/HttpCall_max.json", "com.emarte.regurgitator.extensions.web.HttpCall:['http-call-1',com.emarte.regurgitator.extensions.web.HttpMessageProxy:['something.com',1234,'username','password'],null]");
+	}
+
+	@Test(expected = RegurgitatorException.class)
+	public void testMissingUsername() throws IOException, RegurgitatorException {
+		toTest.load(getJsonObject("classpath:/HttpCall_missingUsername.json"), new HashSet<Object>());
+	}
+
+	@Test(expected = RegurgitatorException.class)
+	public void testMissingPassword() throws IOException, RegurgitatorException {
+		toTest.load(getJsonObject("classpath:/HttpCall_missingPassword.json"), new HashSet<Object>());
 	}
 
 	@Test

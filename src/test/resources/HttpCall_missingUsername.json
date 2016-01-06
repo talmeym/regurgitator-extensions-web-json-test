@@ -1,0 +1,7 @@
+{
+    "id": "http-call-1",
+    "kind": "http-call",
+    "host": "something.com",
+    "port": 1234,
+    "password": "password"
+}
