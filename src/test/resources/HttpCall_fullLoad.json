@@ -2,8 +2,8 @@
     "kind": "sequence",
     "steps": [
         {
-            "id": "http-call-through-1",
-            "kind": "http-call-through",
+            "id": "http-call-1",
+            "kind": "http-call",
             "host": "something.com",
             "port": 1234
         }
