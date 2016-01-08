@@ -7,10 +7,13 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.HashSet;
 
+import static com.emarte.regurgitator.core.ConfigurationFile.loadFile;
 import static junit.framework.Assert.assertEquals;
 
-public class HttpCallJsonLoaderTest extends JsonBaseTest {
-	private HttpCallJsonLoader toTest = new HttpCallJsonLoader();
+public class HttpCallJsonLoaderTest extends JsonLoaderTest {
+	public HttpCallJsonLoaderTest() {
+		super(new HttpCallJsonLoader());
+	}
 
 	@Test
 	public void testThis() throws IOException, RegurgitatorException {
@@ -24,20 +27,16 @@ public class HttpCallJsonLoaderTest extends JsonBaseTest {
 
 	@Test(expected = RegurgitatorException.class)
 	public void testMissingUsername() throws IOException, RegurgitatorException {
-		toTest.load(getJsonObject("classpath:/HttpCall_missingUsername.json"), new HashSet<Object>());
+		loadFromFile("classpath:/HttpCall_missingUsername.json");
 	}
 
 	@Test(expected = RegurgitatorException.class)
 	public void testMissingPassword() throws IOException, RegurgitatorException {
-		toTest.load(getJsonObject("classpath:/HttpCall_missingPassword.json"), new HashSet<Object>());
+		loadFromFile("classpath:/HttpCall_missingPassword.json");
 	}
 
 	@Test
 	public void testFullLoad() throws IOException, RegurgitatorException {
-		ConfigurationFile.loadFile("classpath:/HttpCall_fullLoad.json");
-	}
-
-	private void assertExpectation(String filePath, String expected) throws RegurgitatorException, IOException {
-		assertEquals(expected, toTest.load(getJsonObject(filePath), new HashSet<Object>()).toString());
+		loadFile("classpath:/HttpCall_fullLoad.json");
 	}
 }

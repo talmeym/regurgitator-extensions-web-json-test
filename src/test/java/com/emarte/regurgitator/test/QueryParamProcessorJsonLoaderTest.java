@@ -8,10 +8,13 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.util.HashSet;
 
+import static com.emarte.regurgitator.core.ConfigurationFile.loadFile;
 import static junit.framework.Assert.assertEquals;
 
-public class QueryParamProcessorJsonLoaderTest extends JsonBaseTest {
-	private final QueryParamProcessorJsonLoader toTest = new QueryParamProcessorJsonLoader();
+public class QueryParamProcessorJsonLoaderTest extends JsonLoaderTest {
+	public QueryParamProcessorJsonLoaderTest() {
+		super(new QueryParamProcessorJsonLoader());
+	}
 
 	@Test
 	public void testThis() throws Exception {
@@ -20,10 +23,6 @@ public class QueryParamProcessorJsonLoaderTest extends JsonBaseTest {
 
 	@Test
 	public void testFullLoad() throws Exception {
-		ConfigurationFile.loadFile("classpath:/QueryParamProcessor_FullLoad.json");
-	}
-
-	private void assertExpectation(String filePath, String expected) throws RegurgitatorException, SAXException, IOException {
-		assertEquals(expected, toTest.load(getJsonObject(filePath), new HashSet<Object>()).toString());
+		loadFile("classpath:/QueryParamProcessor_FullLoad.json");
 	}
 }
