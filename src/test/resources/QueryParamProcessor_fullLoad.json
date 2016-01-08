@@ -1,0 +1,9 @@
+{
+    "kind": "sequence",
+    "steps": [
+        {
+            "kind": "query-param-processor",
+            "key": "value"
+        }
+    ]
+}
