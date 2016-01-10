@@ -4,5 +4,15 @@
     "host": "something.com",
     "port": 1234,
     "username": "username",
-    "password": "password"
+    "password": "password",
+    "steps": [
+        {
+            "id": "test-step-1",
+            "kind": "test-step"
+        },
+        {
+            "id": "test-step-2",
+            "kind": "test-step"
+        }
+    ]
 }
