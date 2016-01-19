@@ -1,0 +1,17 @@
+{
+    "id": "sequence-1",
+    "kind": "sequence",
+    "steps": [
+        {
+            "id": "create-http-response-1",
+            "kind": "create-http-response",
+            "name": "toTest1",
+            "source": "context:location",
+            "processor": {
+                "kind": "test-value-processor"
+            },
+            "status-code": "200",
+            "content-type": "contentType"
+        }
+    ]
+}
