@@ -1,15 +1,9 @@
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.*;
 import com.emarte.regurgitator.extensions.web.QueryParamProcessorJsonLoader;
 import org.junit.Test;
-import org.xml.sax.SAXException;
-
-import java.io.IOException;
-import java.util.HashSet;
 
 import static com.emarte.regurgitator.core.ConfigurationFile.loadFile;
-import static junit.framework.Assert.assertEquals;
 
 public class QueryParamProcessorJsonLoaderTest extends JsonLoaderTest {
 	public QueryParamProcessorJsonLoaderTest() {
