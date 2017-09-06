@@ -1,9 +1,15 @@
 {
-    "kind": "sequence",
-    "steps": [
-        {
-            "kind": "query-param-processor",
-            "key": "value"
-        }
-    ]
+  "kind": "sequence",
+  "steps": [
+    {
+      "id": "create-param-1",
+      "kind": "create-parameter",
+      "name": "toTest1",
+      "source": "context:location",
+      "processor": {
+        "kind": "query-param-processor",
+        "key": "value"
+      }
+    }
+  ]
 }
