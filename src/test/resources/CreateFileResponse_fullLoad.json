@@ -1,0 +1,10 @@
+{
+  "kind": "sequence",
+  "steps": [
+    {
+      "kind": "create-file-response",
+      "id": "create-file-response-1",
+      "source": "request-metadata:path-info"
+    }
+  ]
+}
