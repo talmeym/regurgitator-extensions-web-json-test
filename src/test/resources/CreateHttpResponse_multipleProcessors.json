@@ -1,0 +1,16 @@
+{
+  "id": "create-http-response-1",
+  "kind": "create-http-response",
+  "name": "toTest1",
+  "value": "value",
+  "status-code": "200",
+  "content-type": "contentType",
+  "processor": [
+    {
+      "kind": "test-value-processor"
+    },
+    {
+      "kind": "test-value-processor"
+    }
+  ]
+}
