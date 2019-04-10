@@ -8,9 +8,9 @@ import com.emarte.regurgitator.core.RegurgitatorException;
 import com.emarte.regurgitator.extensions.web.HttpCallJsonLoader;
 import org.junit.Test;
 
-import java.io.IOException;
-
 import static com.emarte.regurgitator.core.ConfigurationFile.loadFile;
+import static com.emarte.regurgitator.test.WebExtensionsLoaderTestExpectations.HttpCall;
+import static com.emarte.regurgitator.test.WebExtensionsLoaderTestExpectations.HttpCall_max;
 
 public class HttpCallJsonLoaderTest extends JsonLoaderTest {
     public HttpCallJsonLoaderTest() {
@@ -18,27 +18,27 @@ public class HttpCallJsonLoaderTest extends JsonLoaderTest {
     }
 
     @Test
-    public void testThis() throws IOException, RegurgitatorException {
-        assertExpectation("classpath:/HttpCall.json", "com.emarte.regurgitator.extensions.web.HttpCall:['http-call-1',com.emarte.regurgitator.extensions.web.HttpMessageProxy:[com.emarte.regurgitator.extensions.web.HttpClientWrapper:['http','something.com',1234,null,null]],[]]");
+    public void testThis() throws Exception {
+        assertExpectation("classpath:/HttpCall.json", HttpCall);
     }
 
     @Test
-    public void testMax() throws IOException, RegurgitatorException {
-        assertExpectation("classpath:/HttpCall_max.json", "com.emarte.regurgitator.extensions.web.HttpCall:['http-call-1',com.emarte.regurgitator.extensions.web.HttpMessageProxy:[com.emarte.regurgitator.extensions.web.HttpClientWrapper:['http','something.com',1234,'username','password']],[com.emarte.regurgitator.test.stuff.TestStep:['test-step-1'], com.emarte.regurgitator.test.stuff.TestStep:['test-step-2']]]");
+    public void testMaximum() throws Exception {
+        assertExpectation("classpath:/HttpCall_max.json", HttpCall_max);
     }
 
     @Test(expected = RegurgitatorException.class)
-    public void testMissingUsername() throws IOException, RegurgitatorException {
+    public void testMissingUsername() throws Exception {
         loadFromFile("classpath:/HttpCall_missingUsername.json");
     }
 
     @Test(expected = RegurgitatorException.class)
-    public void testMissingPassword() throws IOException, RegurgitatorException {
+    public void testMissingPassword() throws Exception {
         loadFromFile("classpath:/HttpCall_missingPassword.json");
     }
 
     @Test
-    public void testFullLoad() throws IOException, RegurgitatorException {
+    public void testFullLoad() throws Exception {
         loadFile("classpath:/HttpCall_fullLoad.json");
     }
 }

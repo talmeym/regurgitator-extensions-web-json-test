@@ -8,6 +8,7 @@ import com.emarte.regurgitator.extensions.web.QueryParamProcessorJsonLoader;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConfigurationFile.loadFile;
+import static com.emarte.regurgitator.test.WebExtensionsLoaderTestExpectations.QueryParamProcessor;
 
 public class QueryParamProcessorJsonLoaderTest extends JsonLoaderTest {
     public QueryParamProcessorJsonLoaderTest() {
@@ -16,7 +17,7 @@ public class QueryParamProcessorJsonLoaderTest extends JsonLoaderTest {
 
     @Test
     public void testThis() throws Exception {
-        assertExpectation("classpath:/QueryParamProcessor.json", "com.emarte.regurgitator.extensions.web.QueryParamProcessor:['value']");
+        assertExpectation("classpath:/QueryParamProcessor.json", QueryParamProcessor);
     }
 
     @Test

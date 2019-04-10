@@ -4,14 +4,12 @@
  */
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.RegurgitatorException;
 import com.emarte.regurgitator.extensions.web.CreateFileResponseJsonLoader;
 import org.junit.Test;
-import org.xml.sax.SAXException;
-
-import java.io.IOException;
 
 import static com.emarte.regurgitator.core.ConfigurationFile.loadFile;
+import static com.emarte.regurgitator.test.WebExtensionsLoaderTestExpectations.CreateFileResponse;
+import static com.emarte.regurgitator.test.WebExtensionsLoaderTestExpectations.CreateFileResponse_prefixed;
 
 public class CreateFileResponseJsonLoaderTest extends JsonLoaderTest {
     public CreateFileResponseJsonLoaderTest() {
@@ -19,17 +17,17 @@ public class CreateFileResponseJsonLoaderTest extends JsonLoaderTest {
     }
 
     @Test
-    public void testThis() throws IOException, RegurgitatorException {
-        assertExpectation("classpath:/CreateFileResponse.json", "com.emarte.regurgitator.extensions.web.CreateFileResponse:['create-file-response-1',com.emarte.regurgitator.core.ValueSource:[com.emarte.regurgitator.core.ContextLocation:['request-metadata:path-info'],null],null]");
+    public void testThis() throws Exception {
+        assertExpectation("classpath:/CreateFileResponse.json", CreateFileResponse);
     }
 
     @Test
-    public void testPrefixed() throws SAXException, IOException, RegurgitatorException {
-        assertExpectation("classpath:/CreateFileResponse_prefixed.json", "com.emarte.regurgitator.extensions.web.CreateFileResponse:['create-file-response-1',com.emarte.regurgitator.core.ValueSource:[com.emarte.regurgitator.core.ContextLocation:['request-metadata:path-info'],null],'/assets']");
+    public void testPrefixed() throws Exception {
+        assertExpectation("classpath:/CreateFileResponse_prefixed.json", CreateFileResponse_prefixed);
     }
 
     @Test
-    public void testFullLoadJson() throws RegurgitatorException {
+    public void testFullLoad() throws Exception {
         loadFile("classpath:/CreateFileResponse_fullLoad.json");
     }
 }
