@@ -5,7 +5,7 @@
   "value": "value",
   "status-code": "200",
   "content-type": "contentType",
-  "processor": [
+  "processors": [
     {
       "kind": "test-value-processor"
     },
