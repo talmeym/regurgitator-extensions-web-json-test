@@ -17,7 +17,7 @@ public class CreateFileResponseJsonLoaderTest extends JsonLoaderTest {
     }
 
     @Test
-    public void testThis() throws Exception {
+    public void testLoader() throws Exception {
         assertExpectation("classpath:/CreateFileResponse.json", CreateFileResponse);
     }
 
